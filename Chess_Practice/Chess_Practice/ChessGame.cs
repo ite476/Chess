@@ -2,12 +2,17 @@ namespace Chess_Practice
 {
     public partial class ChessGame : Form
     {
-
+        ///////////////////////////////////////////////////////////////////
         Tile[,] tiles = new Tile[8, 8];
         Tile? selectedTile = null;
+        int thisTurn; // Even -> Black, Odd -> White;
+
+        ///////////////////////////////////////////////////////////////////
         void InitializeChessGame1v1()
         {
             Size tileSize = new Size(board.Width / 8, board.Height / 8);
+            ChessPiece.GameConfig();
+
 
             for (int x = 0; x < 8; x++)
             {
@@ -24,33 +29,70 @@ namespace Chess_Practice
 
             }
 
+            string pieceType;
+
+            pieceType = "Pawn";
             for (int x = 0; x < 8; x++)
             {
-                tiles[x, 6].Piece = new Pawn(x, 6, "white");
-                tiles[x, 1].Piece = new Pawn(x, 1, "black");
+                tiles[x, 1].SetPiece(pieceType, "white"); 
+                tiles[x, 6].SetPiece(pieceType, "black");
             }
+            pieceType = "Rook";
+            {
+                tiles[0, 0].SetPiece(pieceType, "white");
+                tiles[7, 0].SetPiece(pieceType, "white");
+                tiles[0, 7].SetPiece(pieceType, "black");
+                tiles[7, 7].SetPiece(pieceType, "black");
+            }
+            pieceType = "Knight";
+            {
+                tiles[1, 0].SetPiece(pieceType, "white");
+                tiles[6, 0].SetPiece(pieceType, "white");
+                tiles[1, 7].SetPiece(pieceType, "black");
+                tiles[6, 7].SetPiece(pieceType, "black");
+            }
+            pieceType = "Bishop";
+            {
+                tiles[2, 0].SetPiece(pieceType, "white");
+                tiles[5, 0].SetPiece(pieceType, "white");
+                tiles[2, 7].SetPiece(pieceType, "black");
+                tiles[5, 7].SetPiece(pieceType, "black");
+            }
+            pieceType = "Queen";
+            {
+                tiles[3, 0].SetPiece(pieceType, "white");
+                tiles[3, 7].SetPiece(pieceType, "black");
+            }
+            pieceType = "King";
+            {
+                tiles[4, 0].SetPiece(pieceType, "white");
+                tiles[4, 7].SetPiece(pieceType, "black");
+            }
+            thisTurn = 0;
 
             // tiles[0,0].Piece = new Rook(0,0,"black");
             // tiles[0,1].Piece = new Knight(0,1,"black");
             // tiles[0,2].Piece = new Bishop(0,2,"black");
         }
+        ///////////////////////////////////////////////////////////////////
         public ChessGame()
         {
             InitializeComponent();
 
             InitializeChessGame1v1();
-
         }
-
+        ///////////////////////////////////////////////////////////////////
         private void Tile_Click(object sender, EventArgs e)
         {
             Tile_Click((Tile)sender, e);
         }
         private void Tile_Click(Tile sender, EventArgs e)
         {
+            
             if (selectedTile != null)
             {
-                if (selectedTile == sender)
+                //MessageBox.Show((selectedTile.Piece == null) ? "null" : $"{selectedTile.Piece.GetType()}");
+                if (selectedTile == sender) 
                 {
                     if ((selectedTile.cord.X + selectedTile.cord.Y) % 2 == 0) selectedTile.BackColor = Color.White;
                     else selectedTile.BackColor = Color.Gray;
@@ -58,27 +100,32 @@ namespace Chess_Practice
                 }
                 else
                 {
-                    //
-                    if (sender.hasPiece())
+                    
+
+                    if (sender.hasPiece() ? (sender.Piece.color == ChessPiece.Parlette[thisTurn % 2]) : false)
                     {
                         if ((selectedTile.cord.X + selectedTile.cord.Y) % 2 == 0) selectedTile.BackColor = Color.White;
                         else selectedTile.BackColor = Color.Gray;
                         selectedTile = sender;
                         selectedTile.BackColor = Color.LightGreen;
                     }
-                    else if ((selectedTile.Piece).canMoveTo(tiles, sender.cord))
+                    else if (selectedTile.Piece.canMoveTo(tiles, sender.cord))
                     {
-                        MessageBox.Show("!!");
+                        
                         sender.Piece = selectedTile.Piece;
                         if ((selectedTile.cord.X + selectedTile.cord.Y) % 2 == 0) selectedTile.BackColor = Color.White;
                         else selectedTile.BackColor = Color.Gray;
+                        selectedTile.Piece = null;
                         selectedTile = null;
+                        thisTurn++;
                     }
+
+                    
                 }
             }
             else
             {
-                if (sender.hasPiece())
+                if (sender.hasPiece()? (sender.Piece.color == ChessPiece.Parlette[thisTurn % 2]) : false)
                 {
                     selectedTile = sender;
                     selectedTile.BackColor = Color.LightGreen;
@@ -87,24 +134,18 @@ namespace Chess_Practice
 
 
         }
+        ///////////////////////////////////////////////////////////////////
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        ///////////////////////////////////////////////////////////////////
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void test(object sender, EventArgs e)
-        {
-
+            info.Text = $"{ChessPiece.Parlette[thisTurn % 2]}'s turn\n";
+            info.Text += (selectedTile == null) ? "null" : $"{selectedTile.Piece.color} {selectedTile.Piece.GetType()} : \n{selectedTile.cord.X},{selectedTile.cord.Y}";
         }
     }
 }

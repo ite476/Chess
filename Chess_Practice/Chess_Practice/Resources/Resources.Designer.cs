@@ -63,9 +63,9 @@ namespace Chess_Practice.Resources {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Bishop {
+        internal static System.Drawing.Bitmap BlackBishop {
             get {
-                object obj = ResourceManager.GetObject("Bishop", resourceCulture);
+                object obj = ResourceManager.GetObject("BlackBishop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Chess_Practice.Resources {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap King {
+        internal static System.Drawing.Bitmap BlackKing {
             get {
-                object obj = ResourceManager.GetObject("King", resourceCulture);
+                object obj = ResourceManager.GetObject("BlackKing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Chess_Practice.Resources {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Knight {
+        internal static System.Drawing.Bitmap BlackKnight {
             get {
-                object obj = ResourceManager.GetObject("Knight", resourceCulture);
+                object obj = ResourceManager.GetObject("BlackKnight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Chess_Practice.Resources {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Pawn {
+        internal static System.Drawing.Bitmap BlackPawn {
             get {
-                object obj = ResourceManager.GetObject("Pawn", resourceCulture);
+                object obj = ResourceManager.GetObject("BlackPawn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Chess_Practice.Resources {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Queen {
+        internal static System.Drawing.Bitmap BlackQueen {
             get {
-                object obj = ResourceManager.GetObject("Queen", resourceCulture);
+                object obj = ResourceManager.GetObject("BlackQueen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Chess_Practice.Resources {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Rook {
+        internal static System.Drawing.Bitmap BlackRook {
             get {
-                object obj = ResourceManager.GetObject("Rook", resourceCulture);
+                object obj = ResourceManager.GetObject("BlackRook", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +126,66 @@ namespace Chess_Practice.Resources {
         internal static System.Drawing.Bitmap Select {
             get {
                 object obj = ResourceManager.GetObject("Select", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteBishop {
+            get {
+                object obj = ResourceManager.GetObject("WhiteBishop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteKing {
+            get {
+                object obj = ResourceManager.GetObject("WhiteKing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteKnight {
+            get {
+                object obj = ResourceManager.GetObject("WhiteKnight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhitePawn {
+            get {
+                object obj = ResourceManager.GetObject("WhitePawn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteQueen {
+            get {
+                object obj = ResourceManager.GetObject("WhiteQueen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteRook {
+            get {
+                object obj = ResourceManager.GetObject("WhiteRook", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
